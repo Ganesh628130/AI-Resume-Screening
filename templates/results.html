@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Screening Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Resume Screening Analysis</h1>
+        <hr>
+        
+        <div class="card file-info">
+            <h3>Uploaded File:</h3>
+            <p class="filename">{{ filename }}</p>
+        </div>
+
+        <div class="card score-card">
+            <h3>Overall Match Score</h3>
+            <div class="score-circle">
+                <span class="score-number">{{ score }}%</span>
+            </div>
+        </div>
+
+        <div class="card details-card">
+            <h3>Skills Assessment</h3>
+            <p><strong>Skills Required by Job:</strong> {{ required|join(', ') }}</p>
+            <p><strong>Skills Matched in Resume:</strong> <span class="highlight">{{ matched|join(', ') if matched else 'None' }}</span></p>
+        </div>
+
+        <br>
+        <a href="/" class="btn-primary">Upload Another Resume</a>
+    </div>
+</body>
+</html>
